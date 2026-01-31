@@ -1,14 +1,16 @@
- #include <iostream>
+#include <iostream>
 using namespace std;
-int main() {
-int a[2][2], sum = 0;
-cout << "Enter elements: \n";
-for(int i = 0; i < 2; i++){
-for(int j = 0; j < 2; j++) {
-cin >> a[i][j];
- sum += a[i][j]; }
-}
-cout << "Sum of elements = " << sum;
- return 0;
- }
+class Number {
+public:
+  int x;
 
+  Number(int a) { x = a; }
+  Number operator+(Number obj) { return Number(x + obj.x); }
+};
+int main() {
+  Number n1(10), n2(20);
+  Number n3 = n1 + n2;
+
+  cout << n3.x << endl;
+  return 0;
+}
